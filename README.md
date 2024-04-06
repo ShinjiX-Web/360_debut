@@ -4,7 +4,7 @@
 
 - Create a new product on the Shopify backend with multiple variants. Upload placeholder product images to the new product.
 - Modify the product image gallery on the product page using GlideJS library
-- The product image gallery should look like ### [Thirsty Website](https://www.thirsty.com.sg/collections/beer/products/kona-big-wave-golden-ale-can?preview_theme_id=120722686015)
+- The product image gallery should look like [Thirsty Website](https://www.thirsty.com.sg/collections/beer/products/kona-big-wave-golden-ale-can?preview_theme_id=120722686015)
 - Change the add to cart button on the product page to "Preorder" when a product is tagged with preorder on the backend. When the variant is changed, the button should still remain as “Preorder”.
 - Add 2 new controls under Customise Theme > Theme Settings > Colors to change the background color and text color of the add to cart button on the product page
 

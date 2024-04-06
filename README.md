@@ -1,6 +1,6 @@
 # Test account from Nate for 360&5
 
-## Part 1. Modification of product page
+## Part 1. Modification of Product Page
 
 - Create a new product on the Shopify backend with multiple variants. Upload placeholder product images to the new product.
 - Modify the product image gallery on the product page using GlideJS library
@@ -8,7 +8,7 @@
 - Change the add to cart button on the product page to "Preorder" when a product is tagged with preorder on the backend. When the variant is changed, the button should still remain as “Preorder”.
 - Add 2 new controls under Customise Theme > Theme Settings > Colors to change the background color and text color of the add to cart button on the product page
 
-## Part 2. Creation of new template
+## Part 2. Creation of New Template
 
 Create a new page under Online Store > Pages
 Create a new page template [page.test.liquid] in the theme codes, and assign the template to the page

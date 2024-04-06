@@ -11,7 +11,7 @@
 ## Part 2. Creation of new template
 
 Create a new page under Online Store > Pages
-Create a new page template ### [page.test.liquid] in the theme codes, and assign the template to the page
+Create a new page template [page.test.liquid] in the theme codes, and assign the template to the page
 On the new page template, it should look like [Whimsical.com](https://whimsical.com/8vHyJ87aQ3HGUdS4xf7zuj)
 
 ## Part 3. Javascript Test
@@ -38,6 +38,6 @@ If you can do it using Vue JS, it is a plus.
 
 ## We need 3 HTML files in total. 
 
-1 using vanilla JS
-1 using jquery
-1 using Vue
+* 1 using vanilla JS
+* 1 using jquery
+* 1 using Vue

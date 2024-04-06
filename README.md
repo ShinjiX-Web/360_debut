@@ -1,4 +1,4 @@
-# Test account from Nate for 360&5
+# Test Account - Nate for 360&5
 
 ## Part 1. Modification of Product Page
 

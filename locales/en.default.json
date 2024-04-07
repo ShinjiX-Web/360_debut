@@ -378,6 +378,7 @@
   "products": {
     "product": {
       "regular_price": "Regular price",
+      "preorder": "Preorder",
       "sold_out": "Sold out",
       "unavailable": "Unavailable",
       "availability": "Availability",

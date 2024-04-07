@@ -2886,6 +2886,11 @@ hr {
   margin-right: 1rem; }
 
 /*================ Product Images ================*/
+.product-single__thumbnail-image li.active {
+  opacity: 1;
+  border-bottom: 3px solid #fcb128;
+  border-bottom: .1875rem solid #fcb128;
+}
 .product-single__thumbnail {
   display: block;
   margin: -2px 0 8px;
@@ -2898,7 +2903,7 @@ hr {
     border-color: var(--color-text); }
 
 .product-single__thumbnail-image {
-  max-width: 100%;
+  max-width: 110px;
   display: block;
   margin: 0 auto;
   padding: 2px; }

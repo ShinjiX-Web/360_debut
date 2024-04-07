@@ -907,33 +907,33 @@ this.Shopify.theme.PredictiveSearch = (function() {
     }
   }
 
-  function GenericError() {
+  function GenericError(message) {
     var error = Error.call(this);
-
+  
     error.name = 'Server error';
-    error.message = 'Something went wrong on the server';
+    error.message = message || 'Something went wrong on the server';
     error.status = 500;
-
+  
     return error;
   }
 
-  function NotFoundError(status) {
+  function NotFoundError(status, message) {
     var error = Error.call(this);
-
+  
     error.name = 'Not found';
-    error.message = 'Not found';
+    error.message = message || 'Not found';
     error.status = status;
-
+  
     return error;
   }
 
-  function ServerError() {
+  function ServerError(message) {
     var error = Error.call(this);
-
+  
     error.name = 'Server error';
-    error.message = 'Something went wrong on the server';
+    error.message = message || 'Something went wrong on the server';
     error.status = 500;
-
+  
     return error;
   }
 
@@ -9685,3 +9685,56 @@ function removeImageLoadingAnimation(image) {
     imageWrapper.removeAttribute('data-image-loading-animation');
   }
 }
+
+       // Nate's Custom JS for Preorder requirements
+
+      //  document.addEventListener('DOMContentLoaded', function() {
+      //   var productForm = document.querySelector('.product-form');
+      //   if (!productForm) return;
+
+      //   // var addToCartButton = productForm.querySelector('[data-add-to-cart-text]');
+      //   var isPreorder = {{ product.tags contains 'preorder' | json }};
+
+      //   if (isPreorder && addToCartButton) {
+      //     addToCartButton.textContent = '{{ "products.product.preorder" | t }}';
+      //   }
+
+      //   productForm.addEventListener('change', function(event) {
+      //     if (isPreorder && addToCartButton) {
+      //       addToCartButton.textContent = '{{ "products.product.preorder" | t }}';
+      //     }
+      //   });
+      // });
+      
+      async function initialize() {
+        try {
+          const productData = await getProductData();
+          const isPreorder = productData.tags.includes('preorder');
+      
+          if (isPreorder) {
+            const variants = productForm.querySelectorAll('.product-form__variants [data-variant-id]');
+      
+            for (const variant of variants) {
+              if (variant.dataset.available === "true") {
+                variant.closest('.product-form__variant').querySelector('.product-form__cart-submit [data-add-to-cart-text]').textContent = '{{ "products.product.preorder" | t }}';
+              }
+            }
+          }
+        } catch (error) {
+          console.error('Error initializing:', error);
+          throw error;
+        }
+      }
+      
+      productForm.addEventListener('change', function(event) {
+        var currentVariant = productForm.querySelector('.product-form__variants [data-variant-id]:checked');
+        if (currentVariant) {
+          addToCartButton.dataset.variantId = currentVariant.dataset.variantId;
+        }
+      
+        if (isPreorder && addToCartButton) {
+          addToCartButton.textContent = '{{ "products.product.preorder" | t }}';
+        }
+      });
+      
+      

@@ -174,7 +174,7 @@
         "label": {
           "en": "Cart Button"
         },
-        "default": "#ffffff"
+        "default": "#1773B0"
       },
       {
         "type": "color",
@@ -182,7 +182,7 @@
         "label": {
           "en": "Cart Text Color"
         },
-        "default": "#000000"
+        "default": "#ffffff"
       },
       {
         "type": "color",

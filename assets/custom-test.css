@@ -31,14 +31,14 @@
     /* Padding Section Settings */
 
     .small {
-        padding: 10px;
+        padding: 30px;
       }
       
       .medium {
-        padding: 20px;
+        padding: 60px;
       }
       
       .large {
-        padding: 30px;
+        padding: 100px;
       }
       

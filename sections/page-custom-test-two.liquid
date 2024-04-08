@@ -1,18 +1,3 @@
-{{ 'custom-test.css' | asset_url | stylesheet_tag: preload: true }}
-
-<div class="container">
-      {{ 'lifestyle-2' | placeholder_svg_tag }}
-      <div class="overlay-text">
-        <div class="text-center text-white">
-          <h1>{{ section.settings.message_text }}</h1>
-        </div>
-      </div>
-</div>
-
-<div class="second-container text-center {{ section.settings.padding }}">
-    {{ section.settings.rich_sentence }}
-</div>
-
 <div class="page-width feature-row">
   {% capture image_layout %}
     <div class="feature-row__item">
@@ -80,9 +65,12 @@
   </div>
 </div>
 
+
+
 {% schema %}
 {
-  "name": "Page Section",
+  "name": "Page Section Two",
+  "class": "index-section",
   "settings": [
     {
       "type": "image_picker",
@@ -126,44 +114,13 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
-    },
+    }
+  ],
+  "presets": [
     {
-      "type": "header",
-      "content": "Header"
-    },
-    {
-      "type": "text",
-      "id": "message_text",
-      "label": "Text",
-      "default": "This is the Page title"
-    },
-    {
-      "type": "richtext",
-      "id": "rich_sentence",
-      "label": "Second Section",
-      "default": "<p>There are many variations of passages of Lorem ipsum available, but the majority have suffered alteration in some form, by injected humuor, or randomised words which don't look even slightly believable.</p>"
-    },
-    {
-      "type": "select",
-      "id": "padding",
-      "label": "Text Padding",
-      "options": [
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        }
-      ],
-      "default": "medium"
+      "name": "Image with text",
+      "category": "Image with text"
     }
   ]
 }
-
-  {% endschema %}
+{% endschema %}

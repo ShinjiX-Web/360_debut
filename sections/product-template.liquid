@@ -39,7 +39,7 @@ data-ajax-enabled="{{ settings.enable_ajax }}"
 {% endcase %}
 
 {% style %}
-  .product-single__thumbnail--active {
+.product-single__thumbnail-image--active {
     opacity: 1;
     border-bottom: 3px solid #fcb128;
   }
@@ -170,9 +170,10 @@ data-ajax-enabled="{{ settings.enable_ajax }}"
               >
               
               <button type="submit" name="add"
+                      style="background-color: {{ settings.color_button_background }}; color: {{ settings.color_text_button }};"
                       {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                       aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                      class="btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
+                      class="btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %}{% endif %}"
                       {% if settings.enable_ajax %}aria-haspopup="dialog"{% endif %}
                       data-add-to-cart>
                   <span data-add-to-cart-text>

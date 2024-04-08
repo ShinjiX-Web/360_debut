@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Debut",
+    "theme_name": "Debut ni Ate",
     "theme_author": "Shopify",
     "theme_version": "17.14.0",
     "theme_documentation_url": "https://help.shopify.com/manual/using-themes/themes-by-shopify/debut",
@@ -167,6 +167,22 @@
           "zh-CN": "按钮",
           "zh-TW": "按鈕"
         }
+      },
+      {
+        "type": "color",
+        "id": "color_button_background",
+        "label": {
+          "en": "Cart Button"
+        },
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text_button",
+        "label": {
+          "en": "Cart Text Color"
+        },
+        "default": "#000000"
       },
       {
         "type": "color",

@@ -9688,53 +9688,22 @@ function removeImageLoadingAnimation(image) {
 
        // Nate's Custom JS for Preorder requirements
 
-      //  document.addEventListener('DOMContentLoaded', function() {
-      //   var productForm = document.querySelector('.product-form');
-      //   if (!productForm) return;
+       document.addEventListener('DOMContentLoaded', function() {
+        var productForm = document.querySelector('.product-form');
+        if (!productForm) return;
 
-      //   // var addToCartButton = productForm.querySelector('[data-add-to-cart-text]');
-      //   var isPreorder = {{ product.tags contains 'preorder' | json }};
+        // var addToCartButton = productForm.querySelector('[data-add-to-cart-text]');
+        var isPreorder = {{ product.tags contains 'preorder' | json }};
 
-      //   if (isPreorder && addToCartButton) {
-      //     addToCartButton.textContent = '{{ "products.product.preorder" | t }}';
-      //   }
-
-      //   productForm.addEventListener('change', function(event) {
-      //     if (isPreorder && addToCartButton) {
-      //       addToCartButton.textContent = '{{ "products.product.preorder" | t }}';
-      //     }
-      //   });
-      // });
-      
-      async function initialize() {
-        try {
-          const productData = await getProductData();
-          const isPreorder = productData.tags.includes('preorder');
-      
-          if (isPreorder) {
-            const variants = productForm.querySelectorAll('.product-form__variants [data-variant-id]');
-      
-            for (const variant of variants) {
-              if (variant.dataset.available === "true") {
-                variant.closest('.product-form__variant').querySelector('.product-form__cart-submit [data-add-to-cart-text]').textContent = '{{ "products.product.preorder" | t }}';
-              }
-            }
-          }
-        } catch (error) {
-          console.error('Error initializing:', error);
-          throw error;
-        }
-      }
-      
-      productForm.addEventListener('change', function(event) {
-        var currentVariant = productForm.querySelector('.product-form__variants [data-variant-id]:checked');
-        if (currentVariant) {
-          addToCartButton.dataset.variantId = currentVariant.dataset.variantId;
-        }
-      
         if (isPreorder && addToCartButton) {
           addToCartButton.textContent = '{{ "products.product.preorder" | t }}';
         }
+
+        productForm.addEventListener('change', function(event) {
+          if (isPreorder && addToCartButton) {
+            addToCartButton.textContent = '{{ "products.product.preorder" | t }}';
+          }
+        });
       });
       
       

@@ -1,6 +1,6 @@
 <div class="page-width feature-row">
   {% capture image_layout %}
-    <div class="feature-row__item">
+    <div class="feature-row__item" style="display: flex;">
       {% if section.settings.image != blank %}
         {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
         {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
@@ -24,6 +24,9 @@
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
+      {% if section.settings.left-title != blank %}
+        <h2 class="h3">{{ section.settings.left-title | escape }}</h2>
+      {% endif %}
     </div>
   {% endcapture %}
 
@@ -31,6 +34,7 @@
     {% if section.settings.layout == 'left' %}
       {{ image_layout }}
     {% endif %}
+
 
     <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
       {% if section.settings.title != blank %}
@@ -97,6 +101,12 @@
       "type": "text",
       "id": "title",
       "label": "Heading",
+      "default": "This is title 1"
+    },
+    {
+      "type": "text",
+      "id": "left-title",
+      "label": "Heading Left Image",
       "default": "This is title 1"
     },
     {

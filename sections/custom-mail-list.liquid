@@ -1,3 +1,12 @@
+{% style %}
+    #custom-button {
+        background: #FFF8F8;
+        border: none;
+        height: fit-content;
+        padding: 0;
+        line-height: normal;
+    }
+{% endstyle %}
 <div class="newsletter-section{% if section.settings.show_background %} index-section--newsletter-background{% endif %}">
     <div class="page-width">
       <div class="section-header text-center">
@@ -33,11 +42,12 @@
               data-form-status
             {% endif %}
             >
-          <span class="input-group__btn">
-            <button type="submit" class="btn" name="commit">
-              <span>{{ 'general.newsletter_form.submit' | t }}</span>
-            </button>
-          </span>
+            <span class="input-group__btn">
+                <button type="submit" class="btn" name="commit" id="custom-button">
+                  <span></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 30px; height: 30px;"><path style="fill:#232326" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg>
+                </button>
+              </span>
         </div>
         {%- if form.errors contains 'email' -%}
           <span id="{{ formId }}-email-error" class="input-error-message">

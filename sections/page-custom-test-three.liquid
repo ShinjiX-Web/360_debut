@@ -1,12 +1,12 @@
 <div class="page-width feature-row">
   {% capture image_layout %}
-    <div class="feature-row__item" style="display: flex;">
+    <div class="feature-row__item" style="display: grid; grid-template-columns: 83% 1fr;">
       {% if section.settings.image != blank %}
         {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
         {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
         {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
         {% include 'image-style', image: section.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
-        <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+        <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js" style="flex-grow: 2;">
           <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;" data-image-loading-animation>
             <img id="{{ img_id }}"
                  class="feature-row__image lazyload"
@@ -25,7 +25,7 @@
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
       {% if section.settings.left-title != blank %}
-        <h2 class="h3">{{ section.settings.left-title | escape }}</h2>
+        <h2 class="h3" style="font-size: 45px">{{ section.settings.left-title | escape }}</h2>
       {% endif %}
     </div>
   {% endcapture %}

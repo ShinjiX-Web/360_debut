@@ -3,11 +3,34 @@
         padding: 100px 300px;
     }
     .grid.grid--no-gutters.image-bar.image-bar--x-small {
-        display: flex;
-        column-gap: 20px;
-}
-{% endstyle %}  
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 20px;
+    }
+    .no-shrink-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Adjust the value as needed */
+    }
 
+    @media screen and (min-width: 768px) {
+        .grid.grid--no-gutters.image-bar.image-bar--x-small {
+            display: flex;
+            grid-template-columns: 2fr 2fr;
+            gap: 20px;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        #shopify-section-custom-gallery {
+            padding: 0;
+        }
+    }
+    @media screen and (min-width: 1025px) {
+        #shopify-section-custom-gallery {
+            padding: 100px 300px;
+        }
+    }
+{% endstyle %}  
 
 <div class="grid grid--no-gutters image-bar image-bar--{{ section.settings.section_height }}">
   {% case section.blocks.size %}
@@ -44,8 +67,11 @@
       {% endif %}
       <div class="image-bar__content{% if block.settings.cta_label != blank or block.settings.link != blank %} image-bar__overlay{% endif %}">
         {% if block.settings.image == blank %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% else %}
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt }}" class="no-shrink-image">
         {% endif %}
+          
 
         {% if block.settings.cta_label != blank %}
           <div class="image-bar__text">

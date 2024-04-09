@@ -362,6 +362,9 @@ textarea {
   -webkit-appearance: none;
   -moz-appearance: none; }
 
+
+$mail-background: #697885
+
 /*============================================================================
   Fast Tap
   enables no-delay taps (FastClick-esque) on supporting browsers
@@ -2477,7 +2480,7 @@ hr {
     padding-bottom: 0; }
 
 .index-section--flush + .index-section--flush {
-  margin-top: -70px; }
+  margin-top: -25px; }
 
 @media only screen and (min-width: 750px) {
   [class*="index-section--flush"] + [class*="index-section--flush"] {
@@ -6444,8 +6447,9 @@ hr {
 .newsletter-section {
   padding-top: 55px; }
 
-.index-section--newsletter-background {
-  background-color: var(--color-bg-alt); }
+  .index-section--newsletter-background {
+    background-color: #697885;
+}
 
 .rich-text__heading--large {
   font-size: 1.4em; }

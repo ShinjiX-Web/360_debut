@@ -41,3 +41,15 @@
         padding: 50px 170px;
       }
       
+
+        /* Padding Section Settings */
+
+        @media (min-width: 375px) and (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+                padding: 0;
+            }
+            .large {
+                padding: 50px 70px;
+            }
+        }

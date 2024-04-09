@@ -1,3 +1,31 @@
+{% style %}
+    .right-image {
+        height: auto;
+        text-align: end;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+        padding-bottom: 165px;
+    }
+    .right-image svg {
+        width: 100px;
+        background: #EAEAEA;
+    }
+    div#shopify-section-page-custom-test-three {
+        padding-top: 40px;
+    }
+    .p-one {
+        margin: 0
+    }
+
+    @media (max-width:768px) {
+        .right-image {
+            display: none;
+        }
+    }
+{% endstyle %}
+
 <div class="page-width feature-row">
   {% capture image_layout %}
     <div class="feature-row__item" style="display: grid; grid-template-columns: 83% 1fr;">
@@ -5,7 +33,7 @@
         {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
         {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
         {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-        {% include 'image-style', image: section.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
+        {% render 'image-style', image: section.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
         <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js" style="flex-grow: 2;">
           <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;" data-image-loading-animation>
             <img id="{{ img_id }}"
@@ -35,8 +63,16 @@
       {{ image_layout }}
     {% endif %}
 
-
     <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
+        <div class="right-image">
+            {% if section.settings.image != blank %}
+                {{ section.settings.image | image_url: '100x100', scale: 2 | image_tag: section.settings.image.alt, 'feature-row__image' }}
+            {% else %}
+                {{ 'image' | placeholder_svg_tag }}
+            {% endif %}
+            <p class="p-one">There are many variations of</p>
+            <p class="p-one">passage of</p>
+        </div>
       {% if section.settings.title != blank %}
         <h2 class="h3">{{ section.settings.title | escape }}</h2>
       {% endif %}
